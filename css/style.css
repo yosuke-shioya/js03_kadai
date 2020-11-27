@@ -1,0 +1,115 @@
+#your_container{
+    height:600px;
+    width: 50%;
+}
+
+#bms_messages_container{
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+}
+
+
+#bms_chat_header {
+    padding: 6px;
+    font-size: 16px;
+    height: 34px;
+    background: #ddd;
+    border: 1px solid #ccc;
+}
+    
+#bms_chat_user_status {
+        float: left;
+    }
+    
+#bms_status_icon {
+        float: left;
+        line-height: 2em;
+    }
+   
+#bms_chat_user_name {
+        float: left;
+        line-height: 2em;
+        padding-left: 8px;
+    }
+
+
+#bms_send {
+    background-color:#eee;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 48px;
+    padding: 4px;
+}
+#bms_send_message{
+        width: calc(100% - 75px);
+        line-height: 16px;
+        height: 48px;
+        padding: 14px 6px 0px 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: left;
+        box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;
+        box-sizing: border-box;
+
+    }
+    
+
+/* メッセージ部分 */
+#bms_messages {
+    overflow: auto;
+    height:100%;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;
+}
+
+    .bms_message {
+        margin: 0px;
+        padding: 0 14px;
+        font-size: 16px;
+        word-wrap: break-word;
+        white-space: normal;
+        
+    }
+    .bms_message_box{
+            margin-top: 20px;
+            max-width: 100%;
+            font-size: 16px;
+        }
+            
+            .bms_message_content{
+                padding: 20px;
+            }
+
+       
+        .bms_left {
+            float: left;
+            line-height: 1.3em;
+        }
+            .bms_left .bms_message_box {
+                color: #333;
+                background: #00B900;
+                border-radius: 30px 30px 30px 0px;
+                margin-right: 50px;
+            }
+
+       
+            
+    
+    .bms_left {
+        float: left;
+        line-height: 1.3em;
+    }
+
+    
+    .bms_clear {
+        clear: both; 
+
+    }
+
+
+
+    

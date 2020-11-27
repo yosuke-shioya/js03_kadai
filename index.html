@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チャットアプリ</title>
+
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+<body>
+
+        <div id="your_container">
+    
+           
+            <div id="bms_messages_container">
+            <div id="bms_chat_header">
+            <div id="bms_chat_user_status">
+            <div id="bms_status_icon">name</div>
+            <div id="bms_chat_user_name"><input type="text" id="username"></div>
+            </div>
+            </div>
+
+            
+             <div id="bms_send">
+                <textarea id="text"></textarea>
+                <button id="send">送信</button>
+            </div>
+    
+            
+             <div id="bms_messages">
+      
+            </div>
+    
+                
+            </div>
+        </div>
+    
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCDYvRY1KR7I-Xwy6IWDb7PGDQOn9rO_QI",
+  authDomain: "dev18-chat-40a17.firebaseapp.com",
+  databaseURL: "https://dev18-chat-40a17.firebaseio.com",
+  projectId: "dev18-chat-40a17",
+  storageBucket: "dev18-chat-40a17.appspot.com",
+  messagingSenderId: "595966104043",
+  appId: "1:595966104043:web:71767977877d0b512c89ae"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const newPostRef = firebase.database().ref();
+
+
+    // 送信ボタンをクリックされたら次の処理をする
+    $("#send").on("click", function () {
+
+// データを登録で送る
+newPostRef.push({
+  //名前
+  username:$("#username").val(),
+
+  //テキストエリア
+  text:$("#text").val()
+
+})
+// 文字を空にする
+$("#text").val(""); //空にする
+});
+
+// 受信処理
+newPostRef.on("child_added", function (data) {
+      let v = data.val();//ここに保存されたデータが全て入ってくる
+      console.log(v);
+
+      let str = `<div class="bms_message bms_left">
+    <div class="bms_message_box">
+    ${v.username}
+    <div class="bms_message_content">
+    <div class="bms_message_text">${v.text}</div>
+    </div>
+    </div>
+    </div>
+    <div class="bms_clear"></div>`;
+
+      $("#bms_messages").prepend(str);
+     
+});
+
+</script>
+</body>
+</html>
